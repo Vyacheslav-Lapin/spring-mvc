@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 
 @Slf4j
-public class HsqlUserDaoNotNull extends NotNullNamedParameterJdbcDaoSupport implements UserDao {
+public class HsqlUserDao extends NotNullNamedParameterJdbcDaoSupport implements UserDao {
 
   private static final RowMapper<User> userMapper =
       (rs, rowNum) -> User.builder()
@@ -38,7 +38,7 @@ public class HsqlUserDaoNotNull extends NotNullNamedParameterJdbcDaoSupport impl
   public User select(int id) {
     User user = null;
 
-    if (id > 0)
+//    if (id > 0)
       user = getNamedParameterJdbcTemplate().queryForObject(
           "select id, firstname, lastname from user where id = :id",
           Map.of(User.Fields.id, id),

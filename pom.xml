@@ -46,6 +46,7 @@
     <!--region Plugins-->
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven.compiler.release>${java.version}</maven.compiler.release>
+    <maven.compiler.parameters>true</maven.compiler.parameters>
     <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
     <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
     <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
@@ -53,6 +54,7 @@
     <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
     <!--endregion-->
 
+    <bootstrap.version>5.0.0</bootstrap.version>
   </properties>
 
   <dependencyManagement>
@@ -149,6 +151,13 @@
         <artifactId>commons-validator</artifactId>
         <version>${commons-validator.version}</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>bootstrap</artifactId>
+        <version>${bootstrap.version}</version>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
@@ -272,9 +281,14 @@
     </dependency>
     <!--endregion-->
 
+    <!--<dependency>-->
+    <!--  <groupId>org.webjars</groupId>-->
+    <!--  <artifactId>bootstrap</artifactId>-->
+    <!--</dependency>-->
+
   </dependencies>
   <build>
-    <finalName>lab-9-mvc</finalName>
+    <finalName>spring-mvc</finalName>
     <defaultGoal>clean verify</defaultGoal>
 
     <pluginManagement>

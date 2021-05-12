@@ -7,7 +7,7 @@
 <body>
 
 Hello!<br/>
-<a href="${pageContext.request.contextPath}/adduser.form">adduser.form</a>
+<a href="${pageContext.request.contextPath}/addUser.form">addUser.form</a>
 
 </body>
 </html>

@@ -5,7 +5,6 @@ import lab.domain.User;
 import lab.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.val;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,32 +16,32 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/adduser.form")
+@RequestMapping("/addUser.form")
 public class UserFormController {
 
   UserService userService;
 
-  @ModelAttribute("userFormBean")
+  @ModelAttribute("user")
   public User getUserFormBean() {
     return new User();
   }
 
   @GetMapping
   public String get() {
-    return "adduserform";
+    return "addUserForm";
   }
 
   @PostMapping
   public ModelAndView processSubmit(@Valid User user,
                                     Errors errors) {
     if (errors.hasErrors()) {
-      log.info("Adduserform validation failed.");
-      return new ModelAndView("adduserform");
+      log.info("AddUserForm validation failed.");
+      return new ModelAndView("addUserForm");
     } else {
       log.info("Adding new {}", user);
       userService.saveUser(user);
 
-      return new ModelAndView("userlistview", "userList", userService.loadAllUsers());
+      return new ModelAndView("usersView", "users", userService.loadAllUsers());
     }
   }
 }

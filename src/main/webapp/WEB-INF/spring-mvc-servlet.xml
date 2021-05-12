@@ -48,7 +48,7 @@
   </util:list>
 
   <bean id="userDao"
-        class="lab.dao.HsqlUserDaoNotNull"
+        class="lab.dao.HsqlUserDao"
         p:dataSource-ref="dataSource"/>
 
 </beans>

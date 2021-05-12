@@ -1,1 +1,1 @@
-CREATE TABLE user ( id identity, firstname varchar (20), lastname varchar (30) )
+create table user ( id identity, firstname varchar (20), lastname varchar (30) )
